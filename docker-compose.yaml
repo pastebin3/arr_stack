@@ -59,7 +59,7 @@ services:
     hostname: lidarr
     volumes:
       - ${ARRPATH}Lidarr/config:/config
-      - ${ARRPATH}Lidarr/music:/data/musicfolder
+      - ${ARRPATH}Lidarr/music:/data/music
       - ${ARRPATH}Downloads:/downloads
     ports:
       - 8686:8686
@@ -113,7 +113,7 @@ services:
     volumes:
       - ${ARRPATH}Jellyfin/config:/config
       - ${ARRPATH}Radarr/movies:/data/movies
-      - ${ARRPATH}Sonarr/tvshows:/data/shoes
+      - ${ARRPATH}Sonarr/shows:/data/shows
       - ${ARRPATH}Lidarr/music:/data/music
       - ${ARRPATH}Readarr/books:/data/books
     env_file:
