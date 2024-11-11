@@ -6,31 +6,29 @@
 - [Ascii ART](https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow)
 
 ### Download and unzip Files from GitHub:
-https://github.com/automation-avenue/youtube-39-arr-apps-1-click <br />
-cd /home/marek/Downloads <br />
-unzip youtube-39-arr-apps-1-click <br />
+clone https://github.com/pastebin3/arr_stack
 
 ### Installation process:
-Make sure you are in the same folder as docker-compose.yml and .env file, then 'up' to deploy, 'stop' and 'rm' to stop and remove the stack  :<br />
+Make sure you are in the same folder as arr_stack.yaml and .env file, then 'up' to deploy, 'stop' and 'rm' to stop and remove the stack
 
 ```bash
-sudo docker-compose up -d 
+sudo docker-compose -f arr_stack.yaml up -d 
 sudo docker-compose stop
 sudo docker-compose rm 
 ```
 
-Go to the folder specified in .env file (if its /media/Arr then go to /media as root) and 
-run chown command with the user id and group id configured in that .env file:<br />
-`chown -R 1000:1000 Arr`<br />
-Now you can log on and work with all services.<br />
+Go to the folder specified in .env file (if its /media/arr then go to /media as root) and 
+run chown command with the user id and group id configured in that .env file:
+`chown -R 1000:1000 Arr or your first user`
+Now you can log on and work with all services.
 
-First configure the qBittorrent service because its using temporary password only:<br />
+First configure the qBittorrent service because its using temporary password only:
 
-**qBittorrent:**<br />
-First - find the qbittorrent container id by running:<br />
-`sudo docker ps`<br />
-Then check logs for that container it:<br />
-`sudo docker logs <qbittorrent-container-id>`<br />
+**qBittorrent:**
+First - find the qbittorrent container id by running:
+`sudo docker ps`
+Then check logs for that container it:
+`sudo docker logs <qbittorrent-container-id>`
 You will see in the logs something like:<br />
 *The WebUI administrator username is: admin<br />
 The WebUI administrator password was not set. A temporary password is provided for this session: <your-password-will-be-here>* <br />
