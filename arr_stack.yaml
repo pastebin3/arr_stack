@@ -1,113 +1,7 @@
 services:
-# ----------------------------------------
-# prowlarr
-                              
-  prowlarr:
-    image: linuxserver/prowlarr:latest
-    container_name: prowlarr
-    hostname: prowlarr
-    volumes:
-      - ${ARRSTACK}prowlarr/config:/config
-      - ${ARRSTACK}prowlarr/backup:/data/backup
-      - ${ARRSTACK}downloads:/downloads
-    ports:
-      - 9696:9696
-    restart: unless-stopped
-    env_file:
-      - '.env'
 
 # ----------------------------------------
-# sonarr
-      
-  sonarr:
-    image: linuxserver/sonarr:latest
-    container_name: sonarr
-    hostname: sonarr
-    volumes:
-      - ${ARRSTACK}sonarr/config:/config
-      - ${ARRSTACK}sonarr/backup:/data/backup
-      - ${ARRSTACK}sonarr/shows:/data/shows
-      - ${ARRSTACK}downloads:/downloads
-    ports:
-      - 8989:8989
-    restart: unless-stopped
-    env_file:
-      - '.env'
-
-# ----------------------------------------     
-# radarr                                            
-
-  radarr:
-    image: linuxserver/radarr:latest
-    container_name: radarr
-    hostname: radarr
-    volumes:
-      - ${ARRSTACK}radarr/config:/config
-      - ${ARRSTACK}radarr/movies:/data/movies
-      - ${ARRSTACK}radarr/backup:/data/backup
-      - ${ARRSTACK}downloads:/downloads
-    ports:
-      - 7878:7878
-    restart: unless-stopped
-    env_file:
-      - '.env'
-
-# ----------------------------------------     
-# lidarr
-                                             
-  lidarr:
-    image: linuxserver/lidarr:latest
-    container_name: lidarr
-    hostname: lidarr
-    volumes:
-      - ${ARRSTACK}lidarr/config:/config
-      - ${ARRSTACK}lidarr/music:/data/music
-      - ${ARRSTACK}downloads:/downloads
-    ports:
-      - 8686:8686
-    restart: unless-stopped
-    env_file:
-      - '.env'
-
-# ----------------------------------------
-# readarr
-
-  readarr:
-    image: linuxserver/readarr:develop
-    container_name: readarr
-    hostname: readarr
-    volumes:
-      - ${ARRSTACK}readarr/config:/config
-      - ${ARRSTACK}readarr/books:/data/books
-      - ${ARRSTACK}downloads:/downloads
-    ports:
-      - 8787:8787
-    restart: unless-stopped
-    env_file:
-      - '.env'
-
-# ----------------------------------------
-# jellyfin
-     
-  jellyfin:
-    image: linuxserver/jellyfin
-    container_name: jellyfin
-    ports:
-      - '8096:8096/tcp'   # jellyfin web interface
-      - '7359:7359/udp'   # network discovery
-      - '1900:1900/udp'   # dlna port
-    volumes:
-      - ${ARRSTACK}jellyfin/config:/config
-      - ${ARRSTACK}radarr/movies:/data/movies
-      - ${ARRSTACK}sonarr/shows:/data/shows
-      - ${ARRSTACK}lidarr/music:/data/music
-      - ${ARRSTACK}readarr/books:/data/books
-    env_file:
-      - '.env'
-    restart: unless-stopped
-
-# ----------------------------------------
-# qbittorrent                                                                                
+# qbittorrent * get torrents
                                                                                              
   qbittorrent:
     image: linuxserver/qbittorrent:latest
@@ -130,3 +24,110 @@ services:
       start_period: 15s
     env_file:
       - '.env'
+
+# ----------------------------------------
+# prowlarr * et indexers
+                              
+  prowlarr:
+    image: linuxserver/prowlarr:latest
+    container_name: prowlarr
+    hostname: prowlarr
+    volumes:
+      - ${ARRSTACK}prowlarr/config:/config
+      - ${ARRSTACK}prowlarr/backup:/data/backup
+      - ${ARRSTACK}downloads:/downloads
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+    env_file:
+      - '.env'
+
+# ----------------------------------------
+# sonarr * gettvshows
+      
+  sonarr:
+    image: linuxserver/sonarr:latest
+    container_name: sonarr
+    hostname: sonarr
+    volumes:
+      - ${ARRSTACK}sonarr/config:/config
+      - ${ARRSTACK}sonarr/backup:/data/backup
+      - ${ARRSTACK}sonarr/shows:/data/shows
+      - ${ARRSTACK}downloads:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    env_file:
+      - '.env'
+
+# ----------------------------------------     
+# radarr * get movies                                    
+
+  radarr:
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    hostname: radarr
+    volumes:
+      - ${ARRSTACK}radarr/config:/config
+      - ${ARRSTACK}radarr/movies:/data/movies
+      - ${ARRSTACK}radarr/backup:/data/backup
+      - ${ARRSTACK}downloads:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+    env_file:
+      - '.env'
+
+# ----------------------------------------     
+# lidarr * get music
+                                             
+  lidarr:
+    image: linuxserver/lidarr:latest
+    container_name: lidarr
+    hostname: lidarr
+    volumes:
+      - ${ARRSTACK}lidarr/config:/config
+      - ${ARRSTACK}lidarr/music:/data/music
+      - ${ARRSTACK}downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+    env_file:
+      - '.env'
+
+# ----------------------------------------
+# readarr ** get ebook/audiobooks
+
+  readarr:
+    image: linuxserver/readarr:develop
+    container_name: readarr
+    hostname: readarr
+    volumes:
+      - ${ARRSTACK}readarr/config:/config
+      - ${ARRSTACK}readarr/books:/data/books
+      - ${ARRSTACK}downloads:/downloads
+    ports:
+      - 8787:8787
+    restart: unless-stopped
+    env_file:
+      - '.env'
+
+# ----------------------------------------
+# jellyfin ** media player
+     
+  jellyfin:
+    image: linuxserver/jellyfin
+    container_name: jellyfin
+    ports:
+      - '8096:8096/tcp'   # jellyfin web interface
+      - '7359:7359/udp'   # network discovery
+      - '1900:1900/udp'   # dlna port
+    volumes:
+      - ${ARRSTACK}jellyfin/config:/config
+      - ${ARRSTACK}radarr/movies:/data/movies
+      - ${ARRSTACK}sonarr/shows:/data/shows
+      - ${ARRSTACK}lidarr/music:/data/music
+      - ${ARRSTACK}readarr/books:/data/books
+    env_file:
+      - '.env'
+    restart: unless-stopped
