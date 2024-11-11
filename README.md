@@ -71,14 +71,6 @@ http://localhost:8787
 Follow the same steps for Lidarr and Readarr as for above applications.
 add author, then search torrent and download it, you will see it on qbit
 
-**Homarr:**
-http://localhost:7575
-
-Now go back to Prowlarr and click 'Indexers at the top right, click 'Add indexer' - search for sth like 'rarbg' or 'yts' etc then test - save
-Then click 'Sync App Indexers  icon (next to 'Add indexer')
-If you go to Settings - Apps - you should see green 'Full sync' next to each application.
-Arr stack completed - you can now 'add movie' in radarr or 'add series' in sonarr etc and click 'search all' or 'search monitored' - that will trigger the download process.
-
 **Jellyfin:**
 http://localhost:8096
 If you run `docker-compose up` and have something running on port 1900 -  its most possibly rygel service, run:
@@ -88,4 +80,12 @@ Then add media library in jellyfin  matching folders configured in docker-compos
 /data/shows
 /data/music 
 /data/books 
+
+## add indexers & search media
+
+Now go back to Prowlarr and click 'Indexers at the top right, click 'Add indexer' - search for sth like 'rarbg' or 'yts' etc then test - save
+Then click 'Sync App Indexers  icon (next to 'Add indexer')
+If you go to Settings - Apps - you should see green 'Full sync' next to each application.
+Arr stack completed - you can now 'add movie' in radarr or 'add series' in sonarr etc and click 'search all' or 'search monitored' - that will trigger the download process.
+
 
