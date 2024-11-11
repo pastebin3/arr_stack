@@ -1,5 +1,4 @@
-services:       
-
+services:
 # ----------------------------------------
 # prowlarr
                               
@@ -81,22 +80,6 @@ services:
     ports:
       - 8787:8787
     restart: unless-stopped
-    env_file:
-      - '.env'
-
-# ----------------------------------------
-# homarr
-        
-  homarr:
-    container_name: homarr
-    image: ghcr.io/ajnart/homarr:latest
-    restart: unless-stopped
-    volumes:
-      - ${ARRSTACK}homarr/configs:/app/data/configs
-      - ${ARRSTACK}homarr/icons:/app/public/icons
-      - ${ARRSTACK}homarr/data:/data
-    ports:
-      - '7575:7575'
     env_file:
       - '.env'
 
