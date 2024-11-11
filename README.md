@@ -31,7 +31,8 @@ Then check logs for that container it:
 `sudo docker logs <qbittorrent-container-id>`
 You will see in the logs something like:
 *The WebUI administrator username is: admin
-The WebUI administrator password was not set. A temporary password is provided for this session: <your-password-will-be-here>* 
+The WebUI administrator password was not set. 
+A temporary password is provided for this session: <your-password-will-be-here>* 
 Now you can go to URL:
 http://localhost:8080
 and log on using details provided in container logs.
@@ -47,18 +48,18 @@ Host - you have to change from localhost to ip address of the host machine (run 
 
 **Sonarr:**
 http://localhost:8989
-Go to Settings - Media Management - Add Root Folder - set /data/tvshows as your root folder
+Go to Settings - Media Management - Add Root Folder - set /data/shows as your root folder
 Go to Settings - Download Clients - click `+` symbol - choose qBittorrent and repeat the steps from Prowlarr.
 (there are also 'Remote Path Mappings' - use only if your qBittorrent and ARR stack are on different hosts / systems)
 Go to Settings - General - scroll down to API key - copy - go to Prowlarr - Settings - Apps -click '+' - Sonarr - paste  API key and change 'localhost' to ip address of the Ubuntu/Host again.
-Then Settings - General - switch to 'show advanced' in top left corner - scroll down to 'Backups' and choose /data/Backup (or whatever location you have in your docker compose file for Sonarr backups )
+Then Settings - General - switch to 'show advanced' in top left corner - scroll down to 'Backups' and choose /data/backup (or whatever location you have in your docker compose file for Sonarr backups )
 
 **Radarr:**
 http://localhost:7878
 Go to Settings - Media Management - Add Root Folder - set  /data/movies as your root folder 
 Then Settings- Download clients - click 'plus' symbol, choose qBittorrent etc - basically same steps as for Sonarr
 Settings - General - scroll down to API key - copy - go to Prowlarr - add same way as in sonarr
-Settings - General - switch to 'show advanced'- Backups - choose /data/Backup folder 
+Settings - General - switch to 'show advanced'- Backups - choose /data/backup folder 
 
 **Lidarr:**
 http://localhost:8686
@@ -82,9 +83,9 @@ Arr stack completed - you can now 'add movie' in radarr or 'add series' in sonar
 http://localhost:8096
 If you run `docker-compose up` and have something running on port 1900 -  its most possibly rygel service, run:
 `sudo apt-get remove rygel` and run the `sudo docker-compose up -d` again.
-Then add media library in Jellyfin  matching folders configured in docker-compose.yml file, so in Jellyfin you should see them as: 
-/data/Movies 
-/data/TVShows 
-/data/Music 
-/data/Books 
+Then add media library in jellyfin  matching folders configured in docker-compose.yml file, so in Jellyfin you should see them as: 
+/data/movies 
+/data/shows
+/data/music 
+/data/books 
 
