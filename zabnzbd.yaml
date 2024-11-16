@@ -3,15 +3,13 @@ services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
-    environment:
-      - PUID=1000
-      - PGID=1000
+    hostname: sabnzdb
     volumes:
-      - ${ARRSTACK}/config:/config
-      - ${ARRSTACK}/downloads:/downloads #optional
-      - ${ARRSTACK}/incomplete/downloads:/incomplete-downloads #optional
+      - ${ARRSTACK}config:/config
+      - ${ARRSTACK}downloads:/downloads #optional
+      - ${ARRSTACK}incomplete/downloads:/incomplete-downloads #optional
     ports:
       - 9292:9292
     restart: unless-stopped
     env_file:
-    - '.env'
+      - '.env'
