@@ -17,7 +17,7 @@ services:
     env_file:
       - '.env'
     environment:
-      # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
+      # See all providers here: https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers
       - VPN_SERVICE_PROVIDER=ivpn
       - VPN_TYPE=openvpn
       # OpenVPN:
