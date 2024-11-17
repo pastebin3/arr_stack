@@ -18,8 +18,6 @@ services:
       - '.env'
     environment:
       # See all providers here: https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers
-      - VPN_SERVICE_PROVIDER=ivpn
-    environment:
       - VPN_SERVICE_PROVIDER=protonvpn
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=
