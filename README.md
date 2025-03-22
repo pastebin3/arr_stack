@@ -33,6 +33,7 @@ You will see in the logs something like:
 The WebUI administrator password was not set. 
 > A temporary password is provided for this session: <your-password-will-be-here>* 
   >> or via portainer GUI log
+---
 Now you can go to URL:
 > http://localhost:8080
 > or http://yourportainerip:8080
