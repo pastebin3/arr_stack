@@ -131,3 +131,17 @@ services:
     env_file:
       - '.env'
     restart: unless-stopped
+
+# ----------------------------------------
+# jellyseer ** media indexer
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    volumes:
+      - ${ARRSTACK}jellyserr/library:/config
+    ports:
+      - 5055:5055
+    env_file:
+      - ".env"
+    restart: unless-stopped
