@@ -18,7 +18,7 @@ sudo docker-compose stop
 sudo docker-compose rm 
 ```
 
-cd to the same directory as .env and run 
+cd to the same directory as .env and run (change owner)
 `chown -R $USER:$USER arrdirectory `
 
 First we should configure the qBittorrent service since it's using a temporary password:
@@ -32,14 +32,12 @@ You will see in the logs something like:
 *The WebUI administrator username is: admin
 The WebUI administrator password was not set. 
 A temporary password is provided for this session: <your-password-will-be-here>* 
+>> or via portainer GUI log
 Now you can go to URL:
 > http://localhost:8080
 > or http://yourportainerip:8080
 and log on using details provided in container logs.
-> or via portainer GUI log
 Go to Tools - Options - WebUI - change the user and password and tick 'bypass authentication for clients on localhost' .
-
-Secondly configure Prowlarr service (each of these services will require to set up user/pass):
 
 **Prowlarr:**
 > http://localhost:9696
