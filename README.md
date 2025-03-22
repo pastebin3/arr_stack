@@ -9,7 +9,8 @@
 clone https://github.com/pastebin3/arr_stack
 
 ### Installation process:
-Make sure you are in the same folder as arr_stack.yaml and .env file, then 'up' to deploy, 'stop' and 'rm' to stop and remove the stack
+Make sure you are in the same folder as arr_stack.yaml and .env file
+**'up' to deploy, 'stop' and 'rm' to stop and remove the stack**
 
 ```bash
 sudo docker-compose -f arr_stack.yaml up -d 
@@ -17,12 +18,10 @@ sudo docker-compose stop
 sudo docker-compose rm 
 ```
 
-Go to the folder specified in .env file (if its /media/arr then go to /media as root) and 
-run chown command with the user id and group id configured in that .env file:
-`chown -R 1000:1000 Arr or your first user`
-Now you can log on and work with all services.
+cd to the same directory as .env and run 
+`chown -R $USER:$USER arrdirectory `
 
-First configure the qBittorrent service because its using temporary password only:
+First we should configure the qBittorrent service since it's using a temporary password:
 
 **qBittorrent:**
 First - find the qbittorrent container id by running:
@@ -34,15 +33,17 @@ You will see in the logs something like:
 The WebUI administrator password was not set. 
 A temporary password is provided for this session: <your-password-will-be-here>* 
 Now you can go to URL:
-http://localhost:8080
+> http://localhost:8080
+> or http://yourportainerip:8080
 and log on using details provided in container logs.
+> or via portainer GUI log
 Go to Tools - Options - WebUI - change the user and password and tick 'bypass authentication for clients on localhost' .
 
-Then sedond configure Prowlarr service (each of these services will require to set up user/pass):
+Secondly configure Prowlarr service (each of these services will require to set up user/pass):
 
 **Prowlarr:**
-http://localhost:9696
-Go to Settings - Download Clients - `+` symbol - Add download client - choose qBittorrent (unless you decided touse different download client)
+> http://localhost:9696
+> Go to Settings - Download Clients - `+` symbol - Add download client - choose qBittorrent (unless you decided touse different download client)
 Put the port id matching the WebUI in docker-compose for qBittorrent (default is 8080) and username and password that you configured for qBittorrent in previous step
 Host - you have to change from localhost to ip address of the host machine (run 'ip address' command on your host system)
 
