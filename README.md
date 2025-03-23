@@ -1,29 +1,20 @@
 # Arr Stack
 
-### Useful Links:
-- [Servarr Wiki](https://wiki.servarr.com/)
-- [Trash Guides](https://trash-guides.info/)
-- [Ascii ART](https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow)
-
-### Download and unzip Files from GitHub:
+### clone or download :
 clone https://github.com/pastebin3/arr_stack
 
-### Installation process:
+### Installation guide:
 Make sure you are in the same folder as arr_stack.yaml and .env file
 **'up' to deploy, 'stop' and 'rm' to stop and remove the stack**
 
-```bash
-sudo docker-compose -f arr_stack.yaml up -d 
-sudo docker-compose stop
-sudo docker-compose rm 
-```
 
 cd to the same directory as .env and run (change owner)
 `chown -R $USER:$USER arrdirectory `
 
-First we should configure the qBittorrent service since it's using a temporary password:
+Let's configure qBittorrent first since it's using a temporary password:
 
 **qBittorrent:**
+1. CLI
 First - find the qbittorrent container id by running:
 `sudo docker ps`
 Then check logs for that container it:
@@ -32,7 +23,7 @@ You will see in the logs something like:
 *The WebUI administrator username is: admin
 The WebUI administrator password was not set. 
 > A temporary password is provided for this session: <your-password-will-be-here>* 
-  >> or get the password via portainer GUI log
+2. or get the password via portainer GUI log
 ---
 Now you can go to URL:
 > http://localhost:8080
@@ -88,4 +79,9 @@ Then click 'Sync App Indexers  icon (next to 'Add indexer')
 If you go to Settings - Apps - you should see green 'Full sync' next to each application.
 Arr stack completed - you can now 'add movie' in radarr or 'add series' in sonarr etc and click 'search all' or 'search monitored' - that will trigger the download process.
 
+
+### Useful Links:
+- [Servarr Wiki](https://wiki.servarr.com/)
+- [Trash Guides](https://trash-guides.info/)
+- [Ascii ART](https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow)
 
