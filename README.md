@@ -27,41 +27,38 @@ The WebUI administrator password was not set.
 >> get the password via portainer GUI log
 ---
 Now you can go to URL:
-> http://localhost:8080
-> or http://yourportainerip:8080
-and log on using details provided in container logs.
-Go to Tools - Options - WebUI - change the user and password and tick 'bypass authentication for clients on localhost' .
+>> http://yourportainerip:8080
+>> log in using details provided in container logs.
+>> Go to Tools - Options - WebUI - change the user and password and tick 'bypass authentication for clients on localhost' .
 
 **Prowlarr:**
-> http://localhost:9696
-> Go to Settings - Download Clients - `+` symbol - Add download client - choose qBittorrent (unless you decided touse different download client)
-Put the port id matching the WebUI in docker-compose for qBittorrent (default is 8080) and username and password that you configured for qBittorrent in previous step
-Host - you have to change from localhost to ip address of the host machine (run 'ip address' command on your host system)
+>> http://yourportainerip:9696
+>> Go to Settings - Download Clients - `+` symbol - Add download client - choose qBittorrent (unless you decided touse different download client)
+>> Put the port id matching the WebUI in docker-compose for qBittorrent (default is 8080) and username and password that you configured for qBittorrent in previous step
+>> Host - you have to change from localhost to ip address of the host machine (run 'ip address' command on your host system)
+
+## add indexers & search media
+>> go to Prowlarr and click 'Indexers at the top right, click 'Add indexer' - search for sth like 'rarbg' or 'yts' etc then test - save
+>> Then click 'Sync App Indexers  icon (next to 'Add indexer')
+>> If you go to Settings - Apps - you should see green 'Full sync' next to each application.
+>> Arr stack completed - you can now 'add movie' in radarr or 'add series' in sonarr etc and click 'search all' or 'search monitored' - that will trigger the download process.
 
 **Sonarr:**
-http://localhost:8989
-Go to Settings - Media Management - Add Root Folder - set /data/shows as your root folder
-Go to Settings - Download Clients - click `+` symbol - choose qBittorrent and repeat the steps from Prowlarr.
+>> http://yourportainerip:8989
+>> Go to Settings - Media Management - Add Root Folder - set /data/shows as your root folder
+>> Go to Settings - Download Clients - click `+` symbol - choose qBittorrent and repeat the steps from Prowlarr.
 (there are also 'Remote Path Mappings' - use only if your qBittorrent and ARR stack are on different hosts / systems)
-Go to Settings - General - scroll down to API key - copy - go to Prowlarr - Settings - Apps -click '+' - Sonarr - paste  API key and change 'localhost' to ip address of the Ubuntu/Host again.
-Then Settings - General - switch to 'show advanced' in top left corner - scroll down to 'Backups' and choose /data/backup (or whatever location you have in your docker compose file for Sonarr backups )
+>> Go to Settings - General - scroll down to API key - copy - go to Prowlarr - Settings - Apps -click '+' - Sonarr - paste  API key and change 'localhost' to ip address of the Ubuntu/Host again.
+>> Then Settings - General - switch to 'show advanced' in top left corner - scroll down to 'Backups' and choose /data/backup (or whatever location you have in your docker compose file for Sonarr backups )
 
 **Radarr:**
-http://localhost:7878
-Go to Settings - Media Management - Add Root Folder - set  /data/movies as your root folder 
-Then Settings- Download clients - click 'plus' symbol, choose qBittorrent etc - basically same steps as for Sonarr
-Settings - General - scroll down to API key - copy - go to Prowlarr - add same way as in sonarr
-Settings - General - switch to 'show advanced'- Backups - choose /data/backup folder 
+>> http://yourportainerip:7878
+>> Go to Settings - Media Management - Add Root Folder - set  /data/movies as your root folder 
+>> Then Settings- Download clients - click 'plus' symbol, choose qBittorrent etc - basically same steps as for Sonarr
+>> Settings - General - scroll down to API key - copy - go to Prowlarr - add same way as in sonarr
+>> Settings - General - switch to 'show advanced'- Backups - choose /data/backup folder 
 
-**Lidarr:**
-http://localhost:8686
-Follow the same steps for Lidarr and Readarr as for above applications.
-add author, then search torrent and download it, you will see it on qbit
-
-**Readarr:**
-http://localhost:8787
-Follow the same steps for Lidarr and Readarr as for above applications.
-add author, then search torrent and download it, you will see it on qbit
+** repeat the same step above for lidarr/readarr **
 
 **Jellyfin:**
 http://localhost:8096
@@ -73,12 +70,7 @@ Then add media library in jellyfin  matching folders configured in docker-compos
 /data/music 
 /data/books 
 
-## add indexers & search media
 
-Now go back to Prowlarr and click 'Indexers at the top right, click 'Add indexer' - search for sth like 'rarbg' or 'yts' etc then test - save
-Then click 'Sync App Indexers  icon (next to 'Add indexer')
-If you go to Settings - Apps - you should see green 'Full sync' next to each application.
-Arr stack completed - you can now 'add movie' in radarr or 'add series' in sonarr etc and click 'search all' or 'search monitored' - that will trigger the download process.
 
 
 ### Useful Links:
