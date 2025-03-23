@@ -5,9 +5,9 @@ clone https://github.com/pastebin3/arr_stack
 
 ### Installation guide:
 
-cd to the same directory as .env and run (change owner and give it the right permission)
->> *chown -R 775 arrdirectory*
->> `chown -R $USER:$USER arrdirectory `
+make a directory and cd into it, change owner and give it the right permission, run docker-composer in the same directory as .env
+>> chown -R 775 arrdirectory
+>> chown -R $USER:$USER arrdirectory
 
 Let's configure qBittorrent first since it's using a temporary password:
 
