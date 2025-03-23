@@ -14,8 +14,8 @@ cd to the same directory as .env and run (change owner)
 Let's configure qBittorrent first since it's using a temporary password:
 
 **qBittorrent:**
-1. CLI
-First - find the qbittorrent container id by running:
+1. CLI method
+>> First - find the qbittorrent container id by running:
 `sudo docker ps`
 Then check logs for that container it:
 `sudo docker logs <qbittorrent-container-id>`
@@ -23,7 +23,8 @@ You will see in the logs something like:
 *The WebUI administrator username is: admin
 The WebUI administrator password was not set. 
 > A temporary password is provided for this session: <your-password-will-be-here>* 
-2. or get the password via portainer GUI log
+2. GUI method
+>> get the password via portainer GUI log
 ---
 Now you can go to URL:
 > http://localhost:8080
