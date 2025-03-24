@@ -30,9 +30,9 @@ The WebUI administrator password was not set.
 
 **Prowlarr:**
 >> http://yourip:9696
->> Go to Settings - Download Clients - `+` symbol - Add download client - choose qBittorrent (unless you decided touse different download client)
+>> Go to Settings > Download Clients > `+` symbol - Add download client > choose qBittorrent
 >> Put the port id matching the WebUI in docker-compose for qBittorrent (default is 8080) and username and password that you configured for qBittorrent in previous step
->> Host - you have to change from localhost to ip address of the host machine (run 'ip address' command on your host system)
+>> Host - you have to change from localhost to ip address of the host machine (run 'ip address' command on your host or check your portainer url ip)
 
 ## add indexers & search media
 >> go to Prowlarr and click 'Indexers at the top right, click 'Add indexer' - search for sth like 'rarbg' or 'yts' etc then test - save
