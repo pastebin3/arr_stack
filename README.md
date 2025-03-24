@@ -22,7 +22,8 @@ The WebUI administrator password was not set.
 > A temporary password is provided for this session: <your-password-will-be-here>* 
 2. GUI method
 >> get user (admin) and the password via portainer GUI log
-Now you can go to (qbittorrent) URL:
+
+#### Now you can go to (qbittorrent) URL:
 >> http://yourip:8080
 >> log in using details provided in container logs.
 >> Go to Tools - Options - WebUI - change the user and password and tick 'bypass authentication for clients on localhost' .
