@@ -21,7 +21,7 @@ You will see in the logs something like:
 The WebUI administrator password was not set. 
 > A temporary password is provided for this session: <your-password-will-be-here>* 
 2. GUI method
->> get the password via portainer GUI log
+>> get user (admin) and the password via portainer GUI log
 ---
 Now you can go to URL:
 >> http://yourip:8080
