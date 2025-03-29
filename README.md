@@ -7,6 +7,8 @@ clone https://github.com/pastebin3/arr_stack
 
 make a directory called "docker", change owner and give it the right permission, run docker-composer in the same directory as .env
 >> chown -R 775 docker && chown -R $USER:$USER docker
+>> check user id by running: id yourusername
+>> or use: chown -R 1000:1000 docker
 
 Let's configure qBittorrent first since it's using a temporary password:
 
